@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight} from 'react-native';
+
+import { Actions } from 'react-native-router-flux';
 
 const logo = require('./src/img/logo.png');
 const btnJogar = require('./src/img/botao_jogar.png');
@@ -20,12 +22,18 @@ export default class App extends React.Component {
             </View>
 
             <View>
+              <TouchableHighlight onPress={() => { Actions.resultado() }}>
                 <Image source={btnJogar} style={{marginTop: 30}}/>
+              </TouchableHighlight>
             </View>
           </View>
           <View style={styles.footer}>
-            <Image source={btnSobreJogo} />
-            <Image source={btnOutrosJogos} />
+           <TouchableHighlight onPress={() => { Actions.sobreJogo() }}>
+              <Image source={btnSobreJogo} />
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() => { Actions.outrosJogos() }}>
+              <Image source={btnOutrosJogos} />
+            </TouchableHighlight>
           </View>
         </View>
       </View>
